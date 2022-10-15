@@ -4,7 +4,7 @@
 //Реализован патерн Singleton
   class Lib_Menu
   {
-	public $MenuItem = array("Все рецепты"=>"/catalog", "Вторые блюда"=>"/", "Вход"=>"/enter");     
+	public $MenuItem = array("Все рецепты"=>"/catalog", "Добавить"=>"/addrecipe", "Вход"=>"/enter");     
    
 	protected static $instance; //(экземпляр объекта) Защищаем от создания через new Singleton
 	private function __construct() {}	
@@ -25,5 +25,39 @@
 	   $print.="</ul>";	
 	   return  $print;		 
 	 }
+	 
+	 
+	public function getMenuH(){
+		?>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container-fluid">
+    <a class="navbar-brand" href="#">Домашняя</a>
+	
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+      <span class="navbar-toggler-icon"></span>
+    </button >
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav mr-auto">
+         <?php
+			 foreach($this->MenuItem as $name=>$item ){
+				$print = '<li class="nav-item active">
+				<a class="nav-link" href="'.$item.'">'.$name.'<span class="sr-only"></span></a>
+				</li>';		 								
+				echo $print;
+			}			
+			
+          ?>						             
+      </ul>	  
+      
+    </div>
+  </div>
+</nav>
+
+<?php
+		
+		
+		
+	} 
+	 
  }
 ?>

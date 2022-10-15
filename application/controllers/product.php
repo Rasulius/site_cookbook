@@ -4,15 +4,11 @@
   {
      function index()
 	 {
+		 echo "сработал контролер prodfuct";		 
 	     $model=new Application_Models_Product;
-		 $product = $model->getRecipes($_REQUEST['id']);	
+		 $product = $model->getProduct($_REQUEST['id']);	
 		 $this->product=$product;
 		
 	 }
   }
-/*
-  Автор: Авдеев Марк.
-  e-mail: mark-avdeev@mail.ru
-  blog: lifeexample.ru
-*/
 ?>

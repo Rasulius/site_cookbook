@@ -1,39 +1,33 @@
-<h1>Каталог</h1>
+<!-- h1>Каталог</h1 -->
+<div class="container">
+  <div class="row g-4">
 <?php
-//представление каталога (страница каталога)
-	foreach($Items as $item)
-	{
+//представление каталога (страница каталога) 
+
+foreach($Items as $item)
+		{
+			?>
 			
-			//echo "Это тест";
-		   if($i%3==0): ?>
-			<div style="clear:both;"></div>
-			<?php endif;?>
-			
-			<div class="product">
-				<h1>
-				<?=$item["name"]?>
-				</h1>
-							
-				
-				<div class="product_image">
-					<a href="/product/<?=$item["url"]?>">
-					<image src="/images/<?=$item["id"]?>.jpg" /></a>
-				</div>				
-				</p>				
-				
-								
-				<div class="product_buy">
-				<a href="/recipes?type=1">Просмотреть</a>
-				</div>
-				
-				
-			</div> 
-			<?php
-			
-			$i++;	
-			
-			
-			
+  <div class="col">
+	<div class="card h-100" style="width: 18rem;">
+		<img class="rounded float-start" src="/images/<?=$item["id"]?>.jpg" alt="Card image cap" height = "200">
+		<div class="card-body">			
+			<h5 class="card-title"><?=$item["name"]?></h5>
+			<p class="card-text"><?=$item["description"]?></p>		
+		</div>
+		<div class="card-footer">
+			<a href="recipes?type=1" class="btn btn-primary">Просмотреть</a>
+		</div>
+	</div>
+  </div>	
+  
+	<?php
+	$i++;
+	
+		
 	}
 	
 ?>
+
+</div>	
+</div>

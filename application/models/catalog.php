@@ -2,32 +2,27 @@
 //Модель вывода каталога
  class Application_Models_Catalog
   {	  
-	  function getList()
-	  { 
-         // получаем подключение
-		 
-		 $connect = Db::getInstance();
-		 		
-		 $sql = "SELECT * FROM dishes";
-		 $result = mysqli_query($connect, $sql); 
-	
-
-	
-		 while ($row = mysqli_fetch_assoc($result))
-		 {		 
+		function getList()
+		{ 
 			
-	 				 
-			$сatalogItems[]=array(
-				"id"=>$row['id'],
-				"name"=>$row['name'],
-				"description"=>$row['image'],
-				"url"=>$row['url']
-			);					 
-			
-		  }	
+			// Вызов singleton класса		
+			$connect = DbConn::getDbConn();
+			// получаем типы рецептов
+			$sql = "SELECT * FROM category";
 		
-		 return $сatalogItems; 
-	  }
-  } 
+			$result = mysqli_query($connect, $sql); 
+	
+			while ($row = mysqli_fetch_assoc($result))
+			{		 
+				$сatalogItems[]=array(
+					"id"=>$row['id'],
+					"name"=>$row['name'],
+					"description"=>$row['description']
+				);
+			}	
+		
+			return $сatalogItems; 
+		}
+	} 
 ?>  
   

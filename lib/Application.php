@@ -16,9 +16,7 @@
 
     private function getController()//получить контролер
 	{       
-	
        $route=$this->getRoute();
-	   echo 'вызывается контроллер ' . $route;
 	   $path_contr = 'application/controllers/';
        $controller= $path_contr. $route . '.php';
        return $controller;
