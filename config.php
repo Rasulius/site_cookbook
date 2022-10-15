@@ -11,7 +11,8 @@ spl_autoload_register('myAutoloader');
  //константы для подключения к базе данных
  define('HOST', '127.0.0.1'); 		//сервер
  define('USER', 'root'); 			//пользователь
- define('PASSWORD', '3kmzghj3z'); 			//пароль
+ //define('PASSWORD', '3kmzghj3z'); 			//пароль
+ define('PASSWORD', ''); 			//пароль
  define('NAME_BD', 'cookbook');		//база
  $connect = mysqli_connect(HOST, USER, PASSWORD, NAME_BD)or die("Невозможно установить соединение c базой данных".mysql_error( ));
  
