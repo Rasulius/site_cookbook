@@ -46,7 +46,7 @@ if($dislpay_form){?>
 			<textarea class="form-control" id="exampleFormControlTextarea2" rows="3" placeholder="Хенкали по грузинский"></textarea>			
 		</div>		
 		
-	
+		<!-- Кнопка добавить --> 
 		
 		<div class="col-md-6">		    
 			<br/>
