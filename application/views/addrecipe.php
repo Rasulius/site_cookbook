@@ -1,80 +1,68 @@
-<h1>Добавление рецепта</h1>	
+<h1>Добавление рецепта</h1>
+<br/>
+<?if($error){ echo $error;}?><br/>
+<?
+/*
+INSERT INTO `recipe` (`id`, `name`, `description`, `instructions`, `image_file_name`) VALUES
+	(1, 'Вареное Яйцо', 'Одно варенное яйцо', 'Добавьте яцо в холодную воду и ожидайте приготовления', '1.png'),
+	(2, 'Яичница в перцах', 'Оригинальная идея для завтрака - яичница в перце.', 'Приготовить все ингредиенты. Перцы вымыть.cookbook  Нарезать перец колечками толщиной 1,5 см и очистить от семян и перегородок. ', '2.png');
 
-<script>
-      // Wait until the window finishes loaded before executing any script
-      window.onload = function() {
+*/
 
-        // Initialize the activityNumber
-        var activityNumber = 3;
-
-        // Select the add_activity button
-        var addButton = document.getElementById("add_activity");
-
-        // Select the table element
-        var tracklistTable = document.getElementById("form-group");
-		var ul = document.getElementById("pika");
-
-        // Attach handler to the button click event
-        addButton.onclick = function() {
-			//alert('Hello Rasul');
-			var li = document.createElement("li");
-			li.className = "list-group-item list-group-item-primary";
-			li.textContent = "dddd";
-			ul.appendChild(li);
-        }
-
-      }
-
- </script>
-
-<form>
+if($dislpay_form){?>
+<form class="row g-3 " action="" method="post">
   
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Наименование рецепта</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Хенкали по грузинский">
-  </div>
+	<div class="container px-4 gx-5">
+	
+		<!-- Название рецепта --> 
+		<div class="col-md-6">
+			<label for="exampleFormControlInput1">Наименование рецепта</label>
+			<input type="" class="form-control" id="exampleFormControlInput1" placeholder="Хенкали по грузинский">
+		</div>
+		<!-- выбор типа рецепта --> 
+		<div class="col-md-6">
+			<label for="inputState" class="form-label">тип рецепта</label>
+			
+			<select id="inputState" class="form-select">			
+			 <?php				 
+			 foreach($RecipeTypes as $item){	?>	
+			 <option><?=$item["name"]?><option>	
+			 <?php    } ?>     
+			</select>
+			
+		</div>	
+		
+		<!-- Описание --> 
+		
+		<div class="col-md-6">
+		<label for="inputAddress" class="form-label">Описание</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Хенкали по грузинский"></textarea>	
+		</div>
+		
+		<!-- Инструкция по приготовлению --> 
+		
+		<div class="col-md-6">
+			<label for="exampleFormControlTextarea1">Инструкция по приготовлению</label>
+			<textarea class="form-control" id="exampleFormControlTextarea2" rows="3" placeholder="Хенкали по грузинский"></textarea>			
+		</div>		
+		
+	
+		
+		<div class="col-md-6">		    
+			<br/>
+			<input type="submit" name="to_order" value="Добавить рецепт">
+		</div>
+		
+		
+	 </div>
   
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Тип блюда</label>
-    <select class="form-control" id="exampleFormControlSelect1">      
-	  <?php 
-		foreach($RecipeTypes as $item){
-	  ?>	
-		 <option><?=$item["name"]?><option>	
-	  <?php
-	    } 
-	  ?>      
-    </select>
-  </div>
-  
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Описание рецепта</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-  
-  <div class="mb-3">
-    <label for="formFile" class="form-label">Выберите фотографию рецепта</label>
-    <input class="form-control" type="file" id="formFile">
-  </div>
-  
-  <div class="form-group">
-    <label for="exampleFormControlInput2">Ингридиент</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Хенкали по грузинский">
-  </div>
-  
-  <button id="add_activity">Добавить ингридиент</button>
-  <ul class="list-group" id="pika">
-  <li class="list-group-item">Dapibus ac facilisis in</li>
-  <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
-  <li class="list-group-item list-group-item-secondary">This is a secondary list group item</li>
-  <li class="list-group-item list-group-item-success">This is a success list group item</li>
-  <li class="list-group-item list-group-item-danger">This is a danger list group item</li>
-  <li class="list-group-item list-group-item-warning">This is a warning list group item</li>
-  <li class="list-group-item list-group-item-info">This is a info list group item</li>
-  <li class="list-group-item list-group-item-light">This is a light list group item</li>
-  <li class="list-group-item list-group-item-dark">This is a dark list group item</li>
-</ul>
+
+
   
   
+  
+
 </form>
-
+<?}
+else{ echo $message; };
+?>

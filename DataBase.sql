@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `author` (
 
 -- Дамп данных таблицы cookbook.author: ~5 rows (приблизительно)
 INSERT INTO `author` (`id`, `name`) VALUES
-	(1cookbook, 'Иван'),
+	(1, 'Иван'),
 	(2, 'Василии'),
 	(3, 'Антон'),
 	(4, 'Петр'),
